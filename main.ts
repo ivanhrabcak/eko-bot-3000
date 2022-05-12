@@ -58,6 +58,7 @@ function returnBackToStartOfLine () {
 }
 function turnToPickupTrash () {
     turn(-100)
+    servos.P1.setAngle(90)
     basic.pause(1000)
     turn(-150)
     goForwardUntilLine()
@@ -74,16 +75,14 @@ function turn (deg: number) {
     }
     cuteBot.motors(0, 0)
 }
+servos.P1.setAngle(0)
 followLineUntilWhiteSpace()
 turnToPickupTrash()
-goToMiddleLine()
+basic.pause(500)
+goToRightLine()
+basic.pause(2000)
+servos.P1.setAngle(0)
 returnBackToStartOfLine()
-turn(-80)
+turn(-150)
 goForwardUntilLine()
 followLineUntilWhiteSpace()
-returnBackToStartOfLine()
-turnToPickupTrash()
-goToLeftLine()
-returnBackToStartOfLine()
-turn(-30)
-goForwardUntilLine()
